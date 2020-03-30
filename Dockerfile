@@ -1,13 +1,16 @@
 FROM python:3
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+RUN apt-get update && \
+    apt-get install -y vim less
 
 ARG UID=1000
-ARG USER=da8ma
+ARG USER=crawler
 RUN useradd -m -u ${UID} ${USER}
 
 USER ${UID}
 
-# python package settings
+# install python library
 RUN pip install --upgrade pip && \
-pip install requests
+    pip install requests　&& \
+    pip install bs4
