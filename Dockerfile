@@ -1,5 +1,7 @@
 FROM python:3
 
+LABEL description="This container is for scraping learning."
+
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 RUN apt-get update && \
     apt-get install -y vim less
